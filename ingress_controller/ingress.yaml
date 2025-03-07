@@ -1,0 +1,59 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: my-fitness-ingress
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: my.fitnessalx.com
+      http:
+        paths:
+          - path: /profile
+            pathType: Prefix
+            backend:
+              service:
+                name: profile-service
+                port:
+                  number: 4202
+          - path: /shell
+            pathType: Prefix
+            backend:
+              service:
+                name: shell-service
+                port:
+                  number: 4200
+          - path: /trainee
+            pathType: Prefix
+            backend:
+              service:
+                name: trainee-service
+                port:
+                  number: 4203
+          - path: /trainer
+            pathType: Prefix
+            backend:
+              service:
+                name: trainer-service
+                port:
+                  number: 4204
+          - path: /training-session
+            pathType: Prefix
+            backend:
+              service:
+                name: training-session-service
+                port:
+                  number: 3001
+          - path: /user-management
+            pathType: Prefix
+            backend:
+              service:
+                name: user-management-service
+                port:
+                  number: 3000
+          - path: /workout-recommendation
+            pathType: Prefix
+            backend:
+              service:
+                name: workout-recommendation-service
+                port:
+                  number: 8000
